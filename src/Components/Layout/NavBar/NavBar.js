@@ -5,8 +5,8 @@ const NavBar = (props) => {
   return (
     <Fragment>
       <nav className={classes.navbar}>
-        <a className={classes.a}  href="/">HOME</a >
-        <a className={classes.a} href="/store">STORE</a >
+        <NavLink activeClassName={classes.a}  to="/Home">HOME</NavLink >
+        <NavLink activeClassName={classes.a} to="/store">STORE</NavLink >
         <NavLink activeClassName={classes.a} to="/AboutUs">ABOUT</NavLink >
         
       </nav>

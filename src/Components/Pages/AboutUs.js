@@ -1,16 +1,16 @@
 import { Card, Col, Container, Row } from "react-bootstrap";
-import classes from "./AboutUs.css";
+
 import image from "../Images/download.jfif";
 
 
 const AboutUs = () => {
   return (
-    <Container style={{ marginTop: "3rem" }}>
-      <Row>
-        <Col xs={6}>
+    <Container style={{ marginTop: "3rem" }}  fluid='md' >
+      <Row className="justify-content-md-center">
+        <Col sm={8}>
           <Card.Title style={{ textAlign: " center" }}>ABOUT</Card.Title>
-          <Card.Body>
-            <Card.Img variant="top" src={image}  className={classes.img}/>
+          <Card.Body className="shadow-lg">
+            <Card.Img variant="top" src={image}  style={{ textAlign: " center" }} />
             <Card.Text>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
               ipsam asperiores eos at? Laudantium quod voluptatibus esse
