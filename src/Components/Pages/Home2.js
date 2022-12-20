@@ -7,7 +7,7 @@ const Home2 = () => {
   return (<Fragment>
     <div className="Div">
     <Row >
-      <Col className="text-center">
+      <Col className="text-center" style={{    textAlign: "center"}}>
         <Button
           variant="primary"
           style={{ fontSize: "25px" }}

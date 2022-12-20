@@ -48,6 +48,7 @@
   }
   .btn {
     background-color: rgb(161, 157, 157);
+    cursor: pointer;
   }
   
   .divheader {
@@ -87,5 +88,8 @@
 
     .row{
         width: 100%;
+    }
+    .text-centre{
+      text-align: center;
     }
   

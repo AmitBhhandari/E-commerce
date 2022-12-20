@@ -34,7 +34,7 @@ const ContactUs = () => {
 
   return (
     <div className={classes.contact}>
-      <h1>The Generics</h1>
+      
 
       <form className={classes.form} onSubmit={onSubmitHandler}>
         <label htmlFor='name'>Name</label>
