@@ -16,9 +16,9 @@ const Cart = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx?.items?.map((item) => (
-        <li className={classes.coloumn}>
+        <li >
           <CartItems
-            key={item.id}
+            key={item._id}
             id={item.id}
             img={item.image}
             title={item.title}
