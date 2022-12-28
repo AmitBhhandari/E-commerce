@@ -49,7 +49,7 @@ const Cart = (props) => {
       <h2 className={classes.h2}> Total Rs.{totalAmount} </h2>
 
       <button className={classes.button} onClick={purchaseHandler}>
-        PURCHASE{" "}
+       BUY{" "}
       </button>
     </Modal>
   );

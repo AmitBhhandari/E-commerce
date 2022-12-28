@@ -57,7 +57,7 @@ function App() {
         {cartIsShown && <Cart onClose={HideCartHandler} />}
         <Header onShowCart={ShowCartHandler} />
         
-        <Switch>
+        
         <Route path="/" exact>
           <Redirect to="/Login" />
         </Route>
@@ -88,7 +88,7 @@ function App() {
         <LoginForm/>
         {!authCtx.isLoggedIn && <Redirect to='/Login'/>}
         </Route>
-        </Switch>
+        
 
         <Footer />
       </CartProvider>

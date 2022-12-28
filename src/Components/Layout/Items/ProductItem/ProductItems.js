@@ -27,8 +27,9 @@ const ProductItems = (props) => {
 
   return (
     <Fragment>
-    <div className={classes.Items}>
       
+    <div className={classes.Items}>
+    
       <h3>{props.title}</h3>
       <Link to={`/products/${props.id}`}>
       <img src={props.image} alt="some images"></img>

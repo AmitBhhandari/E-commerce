@@ -66,7 +66,7 @@ const AvailableItems = (props) => {
   return (
     <div className={classes.content}>
      
-      <ul>
+      <ul className={classes.ul}>
         {productsArr.map((item) => {
           return (
             <ProductItems
