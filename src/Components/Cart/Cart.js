@@ -16,9 +16,9 @@ const Cart = (props) => {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {cartCtx?.items?.map((item) => (
-        <li >
+        
           <CartItems
-            key={item._id}
+            key={Math.random()}
             id={item.id}
             img={item.image}
             title={item.title}
@@ -26,13 +26,14 @@ const Cart = (props) => {
             price={item.price}
             _id={item._id}
           />
-        </li>
+        
       ))}
     </ul>
   );
 
   const purchaseHandler = () => {
     cartCtx.emptyCart();
+    alert("Thank you for shopping with us")
   };
 
   return (
@@ -49,7 +50,7 @@ const Cart = (props) => {
       <h2 className={classes.h2}> Total Rs.{totalAmount} </h2>
 
       <button className={classes.button} onClick={purchaseHandler}>
-       BUY{" "}
+       BUY
       </button>
     </Modal>
   );

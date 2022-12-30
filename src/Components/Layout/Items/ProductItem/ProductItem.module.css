@@ -4,7 +4,13 @@
 }
 .button{
    background: rgb(13, 201, 226);
+   cursor: pointer;
+   
 }
+button:active {
+    transform: scale(1.2);
+  }
+  
 .price{
  font-size: larger;
 }
@@ -14,9 +20,13 @@
     margin: auto;
     overflow: hidden;
     width: 300px;
-    transition: transform 2s;
+    transition: transform 500ms;
     
 }
 .img:hover{
     transform: scale(105%);
+}
+
+.link{
+    text-decoration: none;
 }

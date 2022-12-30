@@ -1,18 +1,28 @@
-import { Fragment, useState,useContext,useEffect} from "react";
+import React, { Fragment, useState,useContext,useEffect,Suspense} from "react";
 import axios from "axios";
 import { Route,Redirect, Switch } from "react-router-dom";
 import Header from "./Components/Layout/Header/Header";
 import Footer from "./Components/Layout/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import CartProvider from "./Components/Store/CartProvider";
-import AboutUs from "./Components/Pages/AboutUs";
-import Home2 from "./Components/Pages/Home2";
-import Store from "./Components/Pages/Store";
-import ContactUs from "./Components/Pages/ContactUs";
-import ProductDetail from "./Components/Pages/ProductDetails";
-import LoginForm from "./Components/Pages/LoginPage";
 import LoginContext from "./Components/Store/LoginContext";
 import CartContext from "./Components/Store/cart-context";
+
+import LoadingSpinner from "./Components/UI/LoadingSpinner";
+//import AboutUs from "./Components/Pages/AboutUs";
+//import Home2 from "./Components/Pages/Home2";
+//import Store from "./Components/Pages/Store";
+//import ContactUs from "./Components/Pages/ContactUs";
+//import ProductDetail from "./Components/Pages/ProductDetails";
+//import LoginForm from "./Components/Pages/LoginPage";
+
+
+const AboutUs=React.lazy(()=>import('./Components/Pages/AboutUs'))
+const Home2=React.lazy(()=>import('./Components/Pages/Home2'))
+const Store=React.lazy(()=>import('./Components/Pages/Store'))
+const ContactUs=React.lazy(()=>import('./Components/Pages/ContactUs'))
+const ProductDetail=React.lazy(()=>import('./Components/Pages/ProductDetails'))
+const LoginForm=React.lazy(()=>import('./Components/Pages/LoginPage'))
 
 function App() {
 
@@ -37,7 +47,7 @@ function App() {
 
   useEffect(() => {
     if (!email) return;
-     axios.get(`https://crudcrud.com/api/70c791f9f0db4a73af933d9d5fe36326/cart${email}`).then((res) => {
+     axios.get(`https://crudcrud.com/api/122f9303dab44fe2b3f93272cee944a0/cart${email}`).then((res) => {
        const data= (res.data)
        for (const key in data) {
          const item = data[key];
@@ -57,7 +67,7 @@ function App() {
         {cartIsShown && <Cart onClose={HideCartHandler} />}
         <Header onShowCart={ShowCartHandler} />
         
-        
+        <Suspense fallback={<div className="centered"><LoadingSpinner/></div>}>
         <Route path="/" exact>
           <Redirect to="/Login" />
         </Route>
@@ -88,6 +98,7 @@ function App() {
         <LoginForm/>
         {!authCtx.isLoggedIn && <Redirect to='/Login'/>}
         </Route>
+        </Suspense>
         
 
         <Footer />

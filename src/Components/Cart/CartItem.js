@@ -10,9 +10,9 @@ const CartItems = (props) => {
   const onRemoveHandler = (event) => {
     cartCntx.removeItem(props.id);
     const id = props._id;
-    
+
     axios.delete(
-      `https://crudcrud.com/api/70c791f9f0db4a73af933d9d5fe36326/cart${emailId}/${id}`
+      `https://crudcrud.com/api/122f9303dab44fe2b3f93272cee944a0/cart${emailId}/${id}`
     );
   };
 

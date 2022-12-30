@@ -1,55 +1,30 @@
 import { useState } from "react";
 import CartContext from "./cart-context";
-import axios from "axios";
+
 
 export const CartProvider = (props) => {
   if (!localStorage.getItem("email")) {
     localStorage.setItem("email", "");
   }
-  let emailId = localStorage.getItem("email").replace(".", "").replace("@", "");
+ 
 
   const [items, setItems] = useState([]);
 
-  const addItemToCartHandler = (item) => {
-    let arr = [...items];
-    let flag = false;
-    items.forEach((element, index) => {
-      console.log(items);
-      if (element.id === item.id) {
-        arr[index].quantity =
-          Number(item.quantity) + Number(arr[index].quantity);
-        flag = true;
-        console.log(arr[index]);
-        let { _id, ...updatedData } = arr[index];
-        axios
-          .put(
-            `https://crudcrud.com/api/70c791f9f0db4a73af933d9d5fe36326/cart${emailId}/${arr[index]._id}`,
-            updatedData
-          )
-          .then((res) => {
-            console.log(res.data, "Successfull");
-          })
-          .catch((error) => {
-            alert(error);
-          });
-      }
-    });
-    if (flag === false) {
-      axios
-        .post(
-          `https://crudcrud.com/api/e57fa112d8c84ffbb063c274c941ca37/cart${emailId}`,
-          { ...item, quantity: 1 }
-        )
-        .then((res) => {
-          arr.push(res.data);
-          console.log(res.data, "Successfull");
-          setItems(arr);
-        })
-        .catch((error) => {
-          alert(error);
-        });
+  const addItemToCartHandler=(item)=>{
+    let hasItems=false
+    const newArray=[...items]
+    newArray.forEach(Element=>{ 
+        if(Element.title===item.title){
+            hasItems=true
+        }
+    })
+    if(hasItems===true){
+        alert('item exsists')
     }
-  };
+    else{
+        setItems([...items,item])
+    }
+    };
 
   const removeItemHandler = (id) => {
     let itemToRemove = items.findIndex((item) => item.id === id);
